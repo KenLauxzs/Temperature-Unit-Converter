@@ -1,0 +1,41 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="title">
+      <b>Temperature Converter App</b>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label>Select Unit: </ion-label>
+      <ion-select [(ngModel)]="option1" placeholder="select">
+        <ion-select-option value="Fahrenheit">Fahrenheit</ion-select-option>
+        <ion-select-option value="Celsius">Celsius</ion-select-option>
+        <ion-select-option value="Kelvin">Kelvin</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Value</ion-label>
+      <ion-input type="number" [(ngModel)]="numValue" required></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-label>Convert Into:</ion-label>
+      <ion-select [(ngModel)]="option2" placeholder="select">
+        <ion-select-option value="Fahrenheit">Fahrenheit</ion-select-option>
+        <ion-select-option value="Celsius">Celsius</ion-select-option>
+        <ion-select-option value="Kelvin">Kelvin</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="block" (click)="convert()">Convert</ion-button>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Result</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <h1> {{ this.option2 }} : {{ this.result }} </h1>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+    
+</ion-content>
