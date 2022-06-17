@@ -1,7 +1,18 @@
 ion-card-title, .title{
     text-align: center;
+    font-weight: bold;
 }
 ion-card-content h1{
     text-align: center;
+    font-weight: bold;
     padding: 20px;
 }
+ion-select{
+    font-weight: bold;
+}
+#show1, #show2{
+    display: none;
+    text-align: center;
+    color: red;
+}
+

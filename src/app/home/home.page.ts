@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,23 @@ export class HomePage implements OnInit {
   option2: any;
   numValue: number;
   result: any;
-  constructor() { }
+  message = "Pls select option first.";
+  constructor(private toastController: ToastController) { }
 
   ngOnInit() {
 
   }
   convert(){
+  
+    if(this.option1 == null){
+      this.showErrorToast(this.message);
+    }
+    else if(this.option2 == null){
+      this.showErrorToast(this.message);
+    }
+    else if(this.option1 == null && this.option2 == null){
+      this.showErrorToast(this.message);
+    }
 
     const temperature = Number(this.numValue);
     if(this.option1 == "Fahrenheit"){
@@ -52,6 +64,14 @@ export class HomePage implements OnInit {
           this.result = temperature
         }
     }
+  }
+  async showErrorToast(data: any) {
+    let toast = this.toastController.create({
+      message: data,
+      duration: 3000,
+      position: 'bottom'
+    });
+    (await toast).present();
   }
  
 }
